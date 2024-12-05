@@ -17,7 +17,9 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
 import { Separator } from "@/components/ui/separator";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-
+import { QuickStats } from "@/components/quick-stats";
+import ComparisonGraph from "@/components/comparison-graph";
+// import { UpdateScoresModal } from "./components/update-scores-modal";
 
 export default function Page() {
   const [stats, setStats] = useState({
@@ -128,7 +130,7 @@ export default function Page() {
                   </div>
                 </CardContent>
               </Card>
-              {/* <QuickStats {...stats} /> */}
+              <QuickStats {...stats} />
               <Card>
                 <CardHeader>
                   <CardTitle>Comparison Graph</CardTitle>
@@ -139,7 +141,7 @@ export default function Page() {
                     than the average percentile 72% of all the engineers who
                     took this assessment
                   </p>
-                  {/* <ComparisonGraph /> */}
+                  <ComparisonGraph percentile={stats.percentile}/>
                 </CardContent>
               </Card>
             </div>
