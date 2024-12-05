@@ -9,6 +9,8 @@ import { QuickStats } from "@/components/dashboard/QuickStats";
 import ComparisonGraph from "@/components/dashboard/ComparisonGraph";
 import UpdateScoresModal from "@/components/dashboard/UpdateScoresModal";
 import Sidebar from "@/components/dashboard/Sidebar";
+import { syllabusAnalysis } from "@/utils/constants/dashboard/syllabusAnalysis";
+import { syllabusAnalysisType } from "@/lib/types/dashboard/syllabusAnalysis";
 
 const DashboardPage = () => {
   const [stats, setStats] = useState({
@@ -83,51 +85,26 @@ const DashboardPage = () => {
                 <CardHeader>
                   <CardTitle>Syllabus Wise Analysis</CardTitle>
                 </CardHeader>
-                <CardContent className="space-y-4">
-                  <div>
-                    <div className="mb-1 flex justify-between text-sm">
-                      <span>HTML Tools, Forms, History</span>
-                      <span className="text-blue-600">80%</span>
-                    </div>
-                    <Progress
-                      value={80}
-                      className="bg-gray-200"
-                      color="#2563eb"
-                    />
-                  </div>
-                  <div>
-                    <div className="mb-1 flex justify-between text-sm">
-                      <span>Tags & References in HTML</span>
-                      <span className="text-orange-600">60%</span>
-                    </div>
-                    <Progress
-                      value={60}
-                      className="bg-gray-200"
-                      color="#ea580c"
-                    />
-                  </div>
-                  <div>
-                    <div className="mb-1 flex justify-between text-sm">
-                      <span>Tables & References in HTML</span>
-                      <span className="text-red-600">24%</span>
-                    </div>
-                    <Progress
-                      value={24}
-                      className="bg-gray-200"
-                      color="#dc2626"
-                    />
-                  </div>
-                  <div>
-                    <div className="mb-1 flex justify-between text-sm">
-                      <span>Tables & CSS Basics</span>
-                      <span className="text-green-600">96%</span>
-                    </div>
-                    <Progress
-                      value={96}
-                      className="bg-gray-200"
-                      color="#16a34a"
-                    />
-                  </div>
+                <CardContent className="space-y-8 my-4">
+                  {syllabusAnalysis.map(
+                    (result: syllabusAnalysisType, index) => {
+                      return (
+                        <div key={index}>
+                          <div className="mb-1 flex justify-between text-sm">
+                            <span>{result.topic}</span>
+                            <span style={{ color: `${result.color}` }}>
+                              {result.percentage}%
+                            </span>
+                          </div>
+                          <Progress
+                            value={result.percentage}
+                            className="bg-gray-200"
+                            color={`${result.color}`}
+                          />
+                        </div>
+                      );
+                    }
+                  )}
                 </CardContent>
               </Card>
               <Card>
