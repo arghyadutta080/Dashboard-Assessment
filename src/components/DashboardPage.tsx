@@ -12,6 +12,7 @@ import Sidebar from "@/components/dashboard/Sidebar";
 import { syllabusAnalysis } from "@/utils/constants/dashboard/syllabusAnalysis";
 import { syllabusAnalysisType } from "@/lib/types/dashboard/syllabusAnalysis";
 import { performanceStatsType } from "@/lib/types/dashboard/performanceStats";
+import QuestionAnalysis from "./dashboard/QuestionAnalysis";
 
 const DashboardPage = () => {
   const [stats, setStats] = useState<performanceStatsType>({
@@ -104,20 +105,7 @@ const DashboardPage = () => {
                   )}
                 </CardContent>
               </Card>
-              <Card>
-                <CardHeader>
-                  <div className="flex items-center justify-between">
-                    <CardTitle>Question Analysis</CardTitle>
-                    <span className="text-blue-600">{stats.score}/15</span>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-sm text-gray-600">
-                    You scored {stats.score} questions correct out of 15.
-                    However it still needs some improvements
-                  </p>
-                </CardContent>
-              </Card>
+              <QuestionAnalysis stats={stats}/>
             </div>
           </div>
         </main>
