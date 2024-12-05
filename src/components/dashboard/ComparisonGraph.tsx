@@ -12,7 +12,6 @@ import {
 
 interface Stats {
   percentile: number;
-  // other stats...
 }
 
 const data = [
