@@ -81,7 +81,7 @@ const UpdateScoresModal: React.FC<UpdateScoresModalProps> = ({
       <DialogTrigger asChild>
         <Button className="bg-[#2D2D77] font-semibold">Update</Button>
       </DialogTrigger>
-      <DialogContent className="sm:max-w-[625px] p-0 gap-0">
+      <DialogContent className="sm:max-w-[625px] p-0 mx-3 rounded-md">
         <DialogHeader className="px-6 pt-6 pb-0">
           <div className="flex items-center justify-between">
             <DialogTitle className="text-[32px] font-bold">
