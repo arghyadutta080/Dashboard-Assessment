@@ -11,19 +11,17 @@ import {
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import Image from "next/image";
+import { performanceStatsType } from "@/lib/types/dashboard/performanceStats";
 
 interface UpdateScoresModalProps {
-  onUpdate: (data: { rank: number; percentile: number; score: number }) => void;
-  currentStats: {
-    rank: number;
-    percentile: number;
-    score: number;
-  };
+  onUpdate: (data: performanceStatsType) => void;
+  currentStats: performanceStatsType;
 }
 
 const UpdateScoresModal: React.FC<UpdateScoresModalProps> = ({
   onUpdate,
-currentStats}) => {
+  currentStats,
+}) => {
   const [open, setOpen] = useState(false);
   const [formData, setFormData] = useState(currentStats);
   const [errors, setErrors] = useState({
@@ -197,4 +195,4 @@ currentStats}) => {
   );
 };
 
-export default UpdateScoresModal
+export default UpdateScoresModal;

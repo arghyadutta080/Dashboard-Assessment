@@ -7,7 +7,7 @@ interface QuickStatsProps {
   score: number;
 }
 
-export function QuickStats({ rank, percentile, score }: QuickStatsProps) {
+const QuickStats: React.FC<QuickStatsProps> = ({ rank, percentile, score }) => {
   return (
     <Card>
       <CardContent className="grid gap-6 pt-6 sm:grid-cols-3">
@@ -42,3 +42,5 @@ export function QuickStats({ rank, percentile, score }: QuickStatsProps) {
     </Card>
   );
 }
+
+export default QuickStats

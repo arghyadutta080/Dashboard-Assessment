@@ -5,25 +5,22 @@ import { useState } from "react";
 import Image from "next/image";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
-import { QuickStats } from "@/components/dashboard/QuickStats";
+import QuickStats from "@/components/dashboard/QuickStats";
 import ComparisonGraph from "@/components/dashboard/ComparisonGraph";
 import UpdateScoresModal from "@/components/dashboard/UpdateScoresModal";
 import Sidebar from "@/components/dashboard/Sidebar";
 import { syllabusAnalysis } from "@/utils/constants/dashboard/syllabusAnalysis";
 import { syllabusAnalysisType } from "@/lib/types/dashboard/syllabusAnalysis";
+import { performanceStatsType } from "@/lib/types/dashboard/performanceStats";
 
 const DashboardPage = () => {
-  const [stats, setStats] = useState({
+  const [stats, setStats] = useState<performanceStatsType>({
     rank: 1,
     percentile: 30,
     score: 10,
   });
 
-  const handleUpdateScores = (newStats: {
-    rank: number;
-    percentile: number;
-    score: number;
-  }) => {
+  const handleUpdateScores = (newStats: performanceStatsType) => {
     setStats(newStats);
   };
 
