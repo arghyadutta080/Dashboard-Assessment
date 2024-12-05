@@ -53,10 +53,10 @@ const ComparisonGraph: React.FC<Stats> = ({percentile}) => {
             stroke="#4F46E5"
             strokeDasharray="3 3"
             label={{
-              position: "left",
+              position: "center",
               value: "your percentile",
               fill: "#4F46E5",
-              fontSize: 16,
+              fontSize: 14,
             }}
           />
           <Line
